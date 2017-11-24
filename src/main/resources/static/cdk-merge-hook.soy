@@ -1,0 +1,49 @@
+{namespace com.cdk.stash.hook.cdkmergehook}
+
+/**
+ * @param? config
+ * @param? errors
+ */
+{template .formContents}
+<div class="aui"> Configure mandatory tasks to be completed before merging the PR :  </div>
+    {call aui.form.textField}
+        {param id: 'task1' /}
+        {param value: $config['task1'] /}
+        {param labelContent}
+            {stash_i18n('stash.web.test.hook.config.label', 'Task 1')}
+        {/param}
+        {param errorTexts: $errors ? $errors['task1'] : null /}
+    {/call}
+    {call aui.form.textField}
+        {param id: 'task2' /}
+        {param value: $config['task2'] /}
+        {param labelContent}
+            {stash_i18n('stash.web.test.hook.config.label', 'Task 2')}
+        {/param}
+        {param errorTexts: $errors ? $errors['task2'] : null /}
+    {/call}
+    {call aui.form.textField}
+        {param id: 'task3' /}
+        {param value: $config['task3'] /}
+        {param labelContent}
+            {stash_i18n('stash.web.test.hook.config.label', 'Task 3')}
+        {/param}
+        {param errorTexts: $errors ? $errors['task3'] : null /}
+    {/call}
+    {call aui.form.textField}
+        {param id: 'task4' /}
+        {param value: $config['task4'] /}
+        {param labelContent}
+            {stash_i18n('stash.web.test.hook.config.label', 'Task 4')}
+        {/param}
+        {param errorTexts: $errors ? $errors['task4'] : null /}
+    {/call}
+    {call aui.form.textField}
+        {param id: 'task5' /}
+        {param value: $config['task5'] /}
+        {param labelContent}
+            {stash_i18n('stash.web.test.hook.config.label', 'Task 5')}
+        {/param}
+        {param errorTexts: $errors ? $errors['task5'] : null /}
+    {/call}
+{/template}

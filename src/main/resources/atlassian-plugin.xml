@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="gatekeeper-plugin"/>
+  <!-- add our web resources -->
+
+  <web-resource key="gatekeeper-plugin-resources" name="gatekeeper-plugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="gatekeeper-plugin.css" location="/css/gatekeeper-plugin.css"/>
+    <resource type="download" name="gatekeeper-plugin.js" location="/js/gatekeeper-plugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>gatekeeper-plugin</context>
+  </web-resource>
+  
+  <repository-hook name="CDK PR Hook" i18n-name-key="cdk-pr-hook.name" key="cdk-pr-hook" class="com.cdk.stash.hook.GatekeeperHook">
+	  <description key="cdk-pr-hook.description">CDK Pull Request Hook Plugin</description>
+      <icon>icon-example.png</icon>
+      <config-form name="Simple Hook Config" key="simpleHook-config">
+        <view>com.cdk.stash.hook.cdkmergehook.formContents</view>
+        <directory location="/static/"/>
+      </config-form>
+  </repository-hook>
+
+</atlassian-plugin>
